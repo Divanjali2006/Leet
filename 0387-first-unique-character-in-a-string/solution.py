@@ -1,9 +1,15 @@
 class Solution:
     def firstUniqChar(self, s: str) -> int:
-        for ch in s:
-            if s.count(ch)==1:
-                return s.index(ch)
+        dict={}
+        for i in range(len(s)):
+            if s[i] in dict:
+                dict[s[i]]+=1
+            else:
+                dict[s[i]]=1
+        for i in range(len(s)):
+            if dict[s[i]]==1:
+                return i
+        return -1       
 
-        return -1
-        
+                
         
